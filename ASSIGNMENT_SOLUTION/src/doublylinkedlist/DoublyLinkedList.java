@@ -148,7 +148,38 @@ public class DoublyLinkedList<T> {
 		return element;
 	}
 
-	public void deleteGivenNode(T element) {
+	public void deleteGivenNode(T element) throws EmptyLinkedListException {
+		if (isEmpty())
+			throw new EmptyLinkedListException("List is Empty...");
+		if (head.getData() == element) {
+			// delete at beginning
+			if (head.getNext() == null)
+				head = null;
+			else {
+				head = head.getNext();
+				head.setPrev(null);
+			}
+			System.out.println("Element deleted...");
+			return;
+		} else {
+			// element is in between
+			Node<T> currNode;
+			for (currNode = head; currNode != null; currNode = currNode.getNext()) {
+				if (currNode.getData() == element) {
+					if (currNode.getNext() != null) {
+						currNode.getNext().setPrev(currNode.getPrev());
+						currNode.getPrev().setNext(currNode.getNext());
+					} else {
+						currNode.getPrev().setNext(null);
+						currNode.setPrev(null);// optional
+					}
+					System.out.println("Element deleted...");
+					return;
+				}
+			}
+			throw new EmptyLinkedListException("No such element found in the list...");
+		}
 
 	}
+
 }

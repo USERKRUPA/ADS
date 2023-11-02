@@ -15,7 +15,11 @@ public class DLLTester {
 							+ "\nc. Insert the data at end of doubly linked list"
 							+ "\nd. Insert the data after given node of doubly linked list"
 							+ "\ne. Check how many elements are there in the doubly linked list"
-							+ "\nf. Check to see if doubly linked list is empty" + "\nz. exit");
+							+ "\nf. Check to see if doubly linked list is empty"
+							+ "\ng. Delete first node of doubly linked list"
+							+ "\nh. Delete last node of doubly linked list"
+							+ "\ni. Delete given node of doubly linked list" 
+							+ "\nz. exit");
 					System.out.println("Enter your choice: ");
 					switch (scan.next()) {
 					case "a":
@@ -44,7 +48,7 @@ public class DLLTester {
 					case "f": // check list empty or not
 						System.out.println(dll.isEmpty() ? "Empty" : "Not Empty");
 						break;
-					case "g": //delete at begining
+					case "g": //delete at beginning
 						System.out.println("Deleted node is: " +  dll.deleteAtBegin());
 						break;
 					case "h":
